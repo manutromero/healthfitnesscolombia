@@ -1,0 +1,12 @@
+2019-09-25T03:37:31+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-includes\class-wp-image-editor.php on line 402
+
+2019-09-25T03:37:56+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-includes\wp-db.php on line 2007
+
+2019-09-25T03:52:07+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-admin\includes\options.php on line 15
+
+2019-09-25T03:52:11+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-admin\includes\update.php on line 14
+
+2019-09-25T03:52:12+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\booked\includes\admin-functions.php on line 3
+
+2019-09-25T03:52:13+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-admin\includes\ajax-actions.php on line 22
+

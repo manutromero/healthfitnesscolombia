@@ -1,4 +1,4 @@
-/*! elementor - v2.7.2 - 16-09-2019 */
+/*! elementor - v2.7.3 - 24-09-2019 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -6048,6 +6048,12 @@ function (_elementorModules$fro) {
 
       if (isSingleSlide) {
         swiperOptions.effect = elementSettings.effect;
+
+        if ('fade' === elementSettings.effect) {
+          swiperOptions.fadeEffect = {
+            crossFade: true
+          };
+        }
       } else {
         swiperOptions.slidesPerGroup = +elementSettings.slides_to_scroll || 1;
       }
@@ -7385,7 +7391,7 @@ module.exports = elementorModules.ViewModule.extend({
     var self = this,
         classes = self.getSettings('classes'),
         $item = jQuery('<div>', {
-      class: "".concat(classes.item, " ").concat(classes.preventClose)
+      class: classes.item
     }),
         $image = jQuery('<img>', {
       src: imageURL,

@@ -2,8 +2,8 @@
 Contributors: valendesigns
 Tags: options, theme options, meta boxes, settings
 Requires at least: 3.8
-Tested up to: 5.1.1
-Stable tag: 2.7.0
+Tested up to: 5.2
+Stable tag: 2.7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://bit.ly/2TBvksV
@@ -126,6 +126,17 @@ The most likely scenario is your theme already has OptionTree installed in Theme
 
 == Changelog ==
 
+= 2.7.3 =
+* Hotfix - Update regex for Object Injection check to include `+` bypass and PHP serialized classes. props @erwanlr
+
+= 2.7.2 =
+* Hotfix - Extend the `unfiltered_html` `iframe` capabilities to support additional `style` attributes.
+
+= 2.7.1 =
+* Hotfix - Fix error cannot redeclare `_sanitize_recursive()`. props @shramee
+* Hotfix - Ensure `iframe` supports the `style` attribute for users with `unfiltered_html` capabilities.
+* Hotfix - Ensure `noscript` is supported for users with `unfiltered_html` capabilities.
+
 = 2.7.0 =
 * Require PHP 5.3+
 * Fix all PHPCS errors and warnings.
@@ -139,6 +150,8 @@ The most likely scenario is your theme already has OptionTree installed in Theme
 * Add `wordpress-plugin` project type to composer file. props @egifford
 * Removed translation files.
 * Removed the deprecated XML file import method.
+* Fix SQL syntax issue. props @ryanlabelle
+* Fix metabox radio & checkbox style issues. props @ryanlabelle
 
 = 2.6.0 =
 * Fix a reflected XSS vulnerability with the `add_list_item` & `add_social_links` Ajax requests.
