@@ -11,7 +11,7 @@ class FrmAppHelper {
 	/**
 	 * @since 2.0
 	 */
-	public static $plug_version = '4.02.04';
+	public static $plug_version = '4.03';
 
 	/**
 	 * @since 1.07.02
@@ -2058,6 +2058,7 @@ class FrmAppHelper {
 			'updating_msg' => __( 'Please wait while your site updates.', 'formidable' ),
 			'deauthorize'  => __( 'Are you sure you want to deauthorize Formidable Forms on this site?', 'formidable' ),
 			'url'          => self::plugin_url(),
+			'app_url'      => 'https://formidableforms.com/',
 			'loading'      => __( 'Loading&hellip;', 'formidable' ),
 			'nonce'        => wp_create_nonce( 'frm_ajax' ),
 		);
@@ -2079,13 +2080,6 @@ class FrmAppHelper {
 	 * @param string $location
 	 */
 	public static function localize_script( $location ) {
-		global $frm_vars;
-
-		if ( isset( $frm_vars['jsloc'] ) ) {
-			return;
-		}
-		$frm_vars['jsloc'] = true;
-
 		$ajax_url = admin_url( 'admin-ajax.php', is_ssl() ? 'admin' : 'http' );
 		$ajax_url = apply_filters( 'frm_ajax_url', $ajax_url );
 

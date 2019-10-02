@@ -1,0 +1,6 @@
+2019-10-01T01:04:08+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\woocommerce\vendor\autoload_packages.php on line 107
+
+2019-10-01T01:51:25+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\booked\booked.php on line 376
+
+2019-10-01T02:18:47+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-admin\includes\import.php on line 17
+
