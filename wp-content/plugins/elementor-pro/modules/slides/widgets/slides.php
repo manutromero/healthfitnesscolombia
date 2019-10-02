@@ -184,7 +184,7 @@ class Slides extends Base_Widget {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} {{CURRENT_ITEM}} .swiper-slide-inner .elementor-background-overlay' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} {{CURRENT_ITEM}} .elementor-background-overlay' => 'background-color: {{VALUE}}',
 				],
 			]
 		);
@@ -218,7 +218,7 @@ class Slides extends Base_Widget {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} {{CURRENT_ITEM}} .swiper-slide-inner .elementor-background-overlay' => 'mix-blend-mode: {{VALUE}}',
+					'{{WRAPPER}} {{CURRENT_ITEM}} .elementor-background-overlay' => 'mix-blend-mode: {{VALUE}}',
 				],
 			]
 		);
@@ -1195,10 +1195,6 @@ class Slides extends Base_Widget {
 				}
 			}
 
-			if ( 'yes' === $slide['background_overlay'] ) {
-				$slide_html .= '<div class="elementor-background-overlay"></div>';
-			}
-
 			$slide_html .= '<div class="swiper-slide-contents">';
 
 			if ( $slide['heading'] ) {
@@ -1221,6 +1217,11 @@ class Slides extends Base_Widget {
 
 			$slide_html .= '</div>';
 			$slide_html = '<div class="swiper-slide-bg' . $ken_class . '"></div><' . $slide_element . ' ' . $slide_attributes . ' class="swiper-slide-inner">' . $slide_html . '</' . $slide_element . '>';
+
+			if ( 'yes' === $slide['background_overlay'] ) {
+				$slide_html = '<div class="elementor-background-overlay"></div>' . $slide_html;
+			}
+
 			$slides[] = '<div class="elementor-repeater-item-' . $slide['_id'] . ' swiper-slide">' . $slide_html . '</div>';
 			$slide_count++;
 		}
@@ -1270,6 +1271,9 @@ class Slides extends Base_Widget {
 				<div class="swiper-wrapper elementor-slides">
 					<# jQuery.each( settings.slides, function( index, slide ) { #>
 						<div class="elementor-repeater-item-{{ slide._id }} swiper-slide">
+						<# if ( 'yes' === slide.background_overlay ) { #>
+							<div class="elementor-background-overlay"></div>
+						<# } #>
 							<#
 							var kenClass = '';
 
@@ -1279,9 +1283,6 @@ class Slides extends Base_Widget {
 							#>
 							<div class="swiper-slide-bg{{ kenClass }}"></div>
 							<div class="swiper-slide-inner">
-									<# if ( 'yes' === slide.background_overlay ) { #>
-								<div class="elementor-background-overlay"></div>
-									<# } #>
 								<div class="swiper-slide-contents">
 									<# if ( slide.heading ) { #>
 										<div class="elementor-slide-heading">{{{ slide.heading }}}</div>

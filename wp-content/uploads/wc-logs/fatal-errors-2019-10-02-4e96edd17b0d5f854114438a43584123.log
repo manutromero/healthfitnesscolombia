@@ -32,3 +32,11 @@
 
 2019-10-02T05:08:40+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\kirki\modules\webfonts\class-kirki-fonts-helper.php on line 14
 
+2019-10-02T05:38:10+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\essential-addons-for-elementor-lite\includes\Elements\Filterable_Gallery.php on line 5
+
+2019-10-02T05:38:48+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\powerpack-elements\modules\showcase\widgets\showcase.php on line 25
+
+2019-10-02T05:40:18+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\kirki\modules\customizer-styling\class-kirki-modules-customizer-styling.php on line 17
+
+2019-10-02T05:40:42+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\woocommerce\includes\wc-template-functions.php on line 16
+

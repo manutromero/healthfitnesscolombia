@@ -4099,7 +4099,7 @@ ul.elementor-nav-menu--dropdown a, ul.elementor-nav-menu--dropdown a:hover, ul.e
     margin-right: var(--space-between); }
 
 .e-gallery-item.elementor-gallery-item {
-  transition-property: border, border-radius, top, left; }
+  transition-property: all; }
 
 .e-gallery-item:hover .elementor-gallery__item-overlay-bg {
   opacity: 1; }

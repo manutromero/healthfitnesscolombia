@@ -1,10 +1,14 @@
 # Elementor Pro - by Elementor.com
 
+#### 2.7.1 - 2019-09-26
+* Fix: Background Overlay layer is over the slide content in Slides widget ([#9180](https://github.com/elementor/elementor/issues/9180))
+* Fix: Duplicate images under "All" filter in Multiple Gallery
+
 #### 2.7.0 - 2019-09-24
 * New: Enhanced Galleries widget ([#1898](https://github.com/elementor/elementor/issues/1898), [#3103](https://github.com/elementor/elementor/issues/3103), [#4279](https://github.com/elementor/elementor/issues/4279), [#7631](https://github.com/elementor/elementor/issues/7631))
 * New: Dynamic Number ([#5952](https://github.com/elementor/elementor/issues/5952))
 * New: Full content skin for Posts and Archive-posts widgets ([#4617](https://github.com/elementor/elementor/issues/4617))
-* Tweak: Added dynamic number capability to Price List, Price Table, Slider, Counter, Star Rating, Progress Bar widgets
+* Tweak: Added dynamic number capability to Price List, Price Table, Counter, Star Rating, Progress Bar widgets
 * Tweak: Added tags support to forms Mailchimp action ([#5418](https://github.com/elementor/elementor/issues/5418))
 * Tweak: User Profile Picture Dynamic Tag ([#7947](https://github.com/elementor/elementor/issues/7947), [#8740](https://github.com/elementor/elementor/issues/8740))
 * Tweak: Added `font-display` support to custom fonts ([#5993](https://github.com/elementor/elementor/issues/5993), [Developers Blog Post](https://developers.elementor.com/elementor-pro-2-7-custom-fonts-font-display-support/))

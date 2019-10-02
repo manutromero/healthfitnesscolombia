@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.7.0 - 24-09-2019 */
+/*! elementor-pro - v2.7.1 - 26-09-2019 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -4026,6 +4026,8 @@ var galleryHandler = function (_elementorModules$fro) {
 	}, {
 		key: 'galleriesNavigationListener',
 		value: function galleriesNavigationListener(event) {
+			var _this2 = this;
+
 			var classes = this.getSettings('classes'),
 			    clickedElement = jQuery(event.target);
 
@@ -4036,6 +4038,23 @@ var galleryHandler = function (_elementorModules$fro) {
 			clickedElement.addClass(classes.activeTitle);
 
 			this.setGalleryTags(clickedElement.data('gallery-index'));
+
+			var updateLightboxGroup = function updateLightboxGroup() {
+				return _this2.setLightboxGalleryIndex(clickedElement.data('gallery-index'));
+			};
+
+			// Wait for the gallery to filter before grouping items for the Light-box
+			setTimeout(updateLightboxGroup, 1000);
+		}
+	}, {
+		key: 'setLightboxGalleryIndex',
+		value: function setLightboxGalleryIndex() {
+			var index = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'all';
+
+			if ('all' === index) {
+				return this.$element.find(this.getSettings().selectors.galleryItems).attr('data-elementor-lightbox-slideshow', 'all_' + this.getID());
+			}
+			this.$element.find(this.getSettings().selectors.galleryItems).not('.gallery-item--hidden').attr('data-elementor-lightbox-slideshow', index + '_' + this.getID());
 		}
 	}, {
 		key: 'onInit',
@@ -4059,7 +4078,7 @@ var galleryHandler = function (_elementorModules$fro) {
 	}, {
 		key: 'onElementChange',
 		value: function onElementChange(settingKey) {
-			var _this2 = this;
+			var _this3 = this;
 
 			if (-1 !== ['background_overlay_hover_animation', 'content_hover_animation', 'image_hover_animation', 'content_sequenced_animation'].indexOf(settingKey)) {
 				this.appendAnimationClasses(settingKey);
@@ -4084,7 +4103,7 @@ var galleryHandler = function (_elementorModules$fro) {
 			if (settingsToUpdate) {
 				var gallerySettings = this.getGallerySettings();
 				settingsToUpdate.forEach(function (settingToUpdate) {
-					_this2.gallery.setSettings(settingToUpdate, _this2.getItems(gallerySettings, settingToUpdate));
+					_this3.gallery.setSettings(settingToUpdate, _this3.getItems(gallerySettings, settingToUpdate));
 				});
 			}
 		}

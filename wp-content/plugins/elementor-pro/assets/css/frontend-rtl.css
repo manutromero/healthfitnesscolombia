@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.7.0 - 24-09-2019 */
+/*! elementor-pro - v2.7.1 - 26-09-2019 */
 @charset "UTF-8";
 .elementor-bg-transform .elementor-bg {
   will-change: transform; }
@@ -5311,9 +5311,9 @@ ul.elementor-nav-menu--dropdown a, ul.elementor-nav-menu--dropdown a:hover, ul.e
     margin-left: var(--space-between); }
 
 .e-gallery-item.elementor-gallery-item {
-  -webkit-transition-property: border, border-radius, top, left;
-  -o-transition-property: border, border-radius, top, left;
-  transition-property: border, border-radius, top, left; }
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all; }
 
 .e-gallery-item:hover .elementor-gallery__item-overlay-bg {
   opacity: 1; }

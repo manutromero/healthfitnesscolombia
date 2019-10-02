@@ -593,7 +593,7 @@ class Gallery extends Base_Widget {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .e-gallery-image, {{WRAPPER}} .e-gallery-item' => 'transition-duration: {{SIZE}}ms',
+					'{{WRAPPER}} .e-gallery-image' => 'transition-duration: {{SIZE}}ms',
 				],
 			]
 		);
@@ -1347,89 +1347,98 @@ class Gallery extends Base_Widget {
 			}
 		}
 
-		$this->add_render_attribute( 'gallery_item_background_overlay', [ 'class' => 'elementor-gallery-item__overlay' ] ); ?>
+		$this->add_render_attribute( 'gallery_item_background_overlay', [ 'class' => 'elementor-gallery-item__overlay' ] );
 
-		<?php if ( ! empty( $galleries ) ) { ?>
+		$gallery_items = [];
+		foreach ( $galleries as $gallery_index => $gallery ) {
+			foreach ( $gallery as $index => $item ) {
+				if ( in_array( $item['id'], array_keys( $gallery_items ), true ) ) {
+					$gallery_items[ $item['id'] ][] = $gallery_index;
+				} else {
+					$gallery_items[ $item['id'] ] = [ $gallery_index ];
+				}
+			}
+		}
+
+		if ( ! empty( $galleries ) ) { ?>
 		<div <?php echo $this->get_render_attribute_string( 'gallery_container' ); ?>>
 			<?php
-			foreach ( $galleries as $gallery_index => $gallery ) :
-				foreach ( $gallery as $index => $item ) :
-					$widget_id = $this->get_id();
-					$unique_index = $gallery_index . '_' . $index;
-					$thumbnail_size = $settings['thumbnail_image_size'];
-					$attachment = get_post( $item['id'] );
-					$image_data = [
-						'alt' => get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true ),
-						'permalink' => get_permalink( $attachment->ID ),
-						'media' => wp_get_attachment_image_src( $item['id'], 'full' )['0'],
-						'src' => wp_get_attachment_image_src( $item['id'], $thumbnail_size )['0'],
-					];
+			foreach ( $gallery_items as $id => $tags ) :
+				$unique_index = $id; //$gallery_index . '_' . $index;
+				$thumbnail_size = $settings['thumbnail_image_size'];
+				$attachment = get_post( $id );
+				$image_data = [
+					'alt' => get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true ),
+					'permalink' => get_permalink( $attachment->ID ),
+					'media' => wp_get_attachment_image_src( $id, 'full' )['0'],
+					'src' => wp_get_attachment_image_src( $id, $thumbnail_size )['0'],
+				];
 
-					$this->add_render_attribute( 'gallery_item_' . $unique_index, [
+				$this->add_render_attribute( 'gallery_item_' . $unique_index, [
+					'class' => [
+						'e-gallery-item',
+						'elementor-gallery-item',
+					],
+				] );
+
+				if ( $has_animation ) {
+					$this->add_render_attribute( 'gallery_item_' . $unique_index, [ 'class' => 'elementor-animated-content' ] );
+				}
+
+				if ( $is_multiple ) {
+					$this->add_render_attribute( 'gallery_item_' . $unique_index, [ 'data-e-gallery-tags' => implode( ',', $tags ) ] );
+				}
+
+				if ( 'a' === $gallery_item_tag ) {
+					$href = '#';
+					if ( 'file' === $settings['link_to'] ) {
+						$href = $image_data['media'];
+						//$this->add_render_attribute( 'gallery_item_' . $unique_index, [ 'data-elementor-lightbox-slideshow' => $widget_id . $gallery_index ] );
+					}
+					$this->add_render_attribute( 'gallery_item_' . $unique_index, [ 'href' => $href ] );
+				}
+
+				$this->add_render_attribute( 'gallery_item_image_' . $unique_index,
+					[
 						'class' => [
-							'e-gallery-item',
-							'elementor-gallery-item',
+							'e-gallery-image',
+							'elementor-gallery-item__image',
 						],
-					] );
+						'data-thumbnail' => $image_data['src'],
+						'alt' => $image_data['alt'],
+					]
+				);?>
 
-					if ( $has_animation ) {
-						$this->add_render_attribute( 'gallery_item_' . $unique_index, [ 'class' => 'elementor-animated-content' ] );
-					}
-
-					if ( $is_multiple ) {
-						$this->add_render_attribute( 'gallery_item_' . $unique_index, [ 'data-e-gallery-tags' => $gallery_index ] );
-					}
-
-					if ( 'a' === $gallery_item_tag ) {
-						$href = '#';
-						if ( 'file' === $settings['link_to'] ) {
-							$href = $image_data['media'];
-							$this->add_render_attribute( 'gallery_item_' . $unique_index, [ 'data-elementor-lightbox-slideshow' => $widget_id . $gallery_index ] );
-						}
-						$this->add_render_attribute( 'gallery_item_' . $unique_index, [ 'href' => $href ] );
-					}
-
-					$this->add_render_attribute( 'gallery_item_image_' . $unique_index,
-						[
-							'class' => [
-								'e-gallery-image',
-								'elementor-gallery-item__image',
-							],
-							'data-thumbnail' => $image_data['src'],
-							'alt' => $image_data['alt'],
-						]
-					);?>
-
-					<<?php echo $gallery_item_tag; ?> <?php echo $this->get_render_attribute_string( 'gallery_item_' . $unique_index ); ?>>
-						<div <?php echo $this->get_render_attribute_string( 'gallery_item_image_' . $unique_index ); ?> ></div>
-						<?php if ( ! empty( $settings['overlay_background'] ) ) : ?>
-						<div <?php echo $this->get_render_attribute_string( 'gallery_item_background_overlay' ); ?>></div>
-						<?php endif; ?>
-						<?php if ( $has_title || $has_description ) :
-							$image_data = [
-								'caption' => $attachment->post_excerpt,
-								'description' => $attachment->post_content,
-								'title' => $attachment->post_title,
-							];
-							?>
-						<div <?php echo $this->get_render_attribute_string( 'gallery_item_content' ); ?>>
-							<?php if ( $has_title ) :
-								$title = $image_data[ $settings['overlay_title'] ];
-								if ( ! empty( $title ) ) : ?>
-								<div <?php echo $this->get_render_attribute_string( 'gallery_item_title' ); ?>><?php echo $title; ?></div>
-								<?php endif;
-							endif;
-							if ( $has_description ) :
-								$description = $image_data[ $settings['overlay_description'] ];
-								if ( ! empty( $description ) ) :?>
-								<div <?php echo $this->get_render_attribute_string( 'gallery_item_description' ); ?>><?php echo $description; ?></div>
-								<?php endif;
-							endif; ?>
-						</div>
-						<?php endif; ?>
-					</<?php echo $gallery_item_tag; ?>>
-				<?php endforeach;
-			endforeach; ?>
+				<<?php echo $gallery_item_tag; ?> <?php echo $this->get_render_attribute_string( 'gallery_item_' . $unique_index ); ?>>
+					<div <?php echo $this->get_render_attribute_string( 'gallery_item_image_' . $unique_index ); ?> ></div>
+					<?php if ( ! empty( $settings['overlay_background'] ) ) : ?>
+					<div <?php echo $this->get_render_attribute_string( 'gallery_item_background_overlay' ); ?>></div>
+					<?php endif; ?>
+					<?php if ( $has_title || $has_description ) :
+						$image_data = [
+							'caption' => $attachment->post_excerpt,
+							'description' => $attachment->post_content,
+							'title' => $attachment->post_title,
+						];
+						?>
+					<div <?php echo $this->get_render_attribute_string( 'gallery_item_content' ); ?>>
+						<?php if ( $has_title ) :
+							$title = $image_data[ $settings['overlay_title'] ];
+							if ( ! empty( $title ) ) : ?>
+							<div <?php echo $this->get_render_attribute_string( 'gallery_item_title' ); ?>><?php echo $title; ?></div>
+							<?php endif;
+						endif;
+						if ( $has_description ) :
+							$description = $image_data[ $settings['overlay_description'] ];
+							if ( ! empty( $description ) ) :?>
+							<div <?php echo $this->get_render_attribute_string( 'gallery_item_description' ); ?>><?php echo $description; ?></div>
+							<?php endif;
+						endif; ?>
+					</div>
+					<?php endif; ?>
+				</<?php echo $gallery_item_tag; ?>>
+			<?php endforeach;
+			//endforeach; ?>
 		</div>
 	<?php }
 	}
