@@ -1,0 +1,34 @@
+2019-10-02T01:16:46+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\elementor\includes\widgets\icon.php on line 4
+
+2019-10-02T01:20:54+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\booked\booked.php on line 376
+
+2019-10-02T01:20:54+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\booked\booked.php on line 376
+
+2019-10-02T02:32:54+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\booked\includes\admin-functions.php on line 3
+
+2019-10-02T04:02:36+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-admin\includes\template.php on line 12
+
+2019-10-02T04:06:35+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-admin\includes\bookmark.php on line 16
+
+2019-10-02T04:06:37+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-admin\includes\template.php on line 12
+
+2019-10-02T04:10:37+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-includes\Requests\IRI.php on line 66
+
+2019-10-02T04:11:01+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\booked\booked.php on line 376
+
+2019-10-02T04:13:56+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\elementor\core\files\base.php on line 192
+
+2019-10-02T04:19:52+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\booked\booked.php on line 376
+
+2019-10-02T05:00:12+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\themes\hello-elementor\includes\admin-functions.php on line 13
+
+2019-10-02T05:00:44+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\woocommerce\includes\tracks\class-wc-tracks.php on line 11
+
+2019-10-02T05:00:44+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\booked\booked.php on line 376
+
+2019-10-02T05:01:19+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\th-widget-pack\elements\team.php on line 4
+
+2019-10-02T05:02:03+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\powerpack-lite-for-elementor\modules\info-list\widgets\info-list.php on line 20
+
+2019-10-02T05:08:40+00:00 CRITICAL Maximum execution time of 30 seconds exceeded in C:\xampp\htdocs\healthfitnesscolombia\wp-content\plugins\kirki\modules\webfonts\class-kirki-fonts-helper.php on line 14
+
